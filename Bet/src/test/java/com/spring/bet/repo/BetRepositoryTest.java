@@ -40,14 +40,14 @@ public class BetRepositoryTest {
 	@Test
 	public void testSaveBet() {
 		
-		Bet bet = new Bet(8956,  new Date(Calendar.getInstance().getTime().getTime()), "WIN", 104567L, 1080L, 100);
+		Bet bet = new Bet(8956,  new Timestamp(Calendar.getInstance().getTime().getTime()), "WIN", 104567L, 1080L, 100);
 		betRepository.save(bet);
 		assertNotNull(betRepository.findById(bet.getBetId()));				
 	}
 	
 	@Test
 	public void testGetTotalInvestmentPerBetType() {
-		Bet bet = new Bet(8958,  new Date(Calendar.getInstance().getTime().getTime()), "WIN", 104567L, 1080L, 100);
+		Bet bet = new Bet(8958,  new Timestamp(Calendar.getInstance().getTime().getTime()), "WIN", 104567L, 1080L, 100);
 		betRepository.save(bet);
 		Object[] totalInvestment = betRepository.getTotalInvestmentPerBetType();
 		System.out.println("length  "+totalInvestment.length);
@@ -57,18 +57,18 @@ public class BetRepositoryTest {
 	
 	@Test
 	public void testGetTotalInvestmentPerCustomerID() {
-		Bet bet = new Bet(8959,  new Date(Calendar.getInstance().getTime().getTime()), "WIN", 104567L, 1081L, 100);
+		Bet bet = new Bet(8959,  new Timestamp(Calendar.getInstance().getTime().getTime()), "WIN", 104567L, 1081L, 100);
 		betRepository.save(bet);
-		 bet = new Bet(8960,  new Date(Calendar.getInstance().getTime().getTime()), "WIN", 104567L, 1082L, 100);
+		 bet = new Bet(8960,  new Timestamp(Calendar.getInstance().getTime().getTime()), "WIN", 104567L, 1082L, 100);
 		Object[] totalInvestment = betRepository.getTotalInvestmentPerCustomerID();
 		assertNotNull(totalInvestment);
 	}
 	
 	@Test
 	public void testGetTotalBetsSoldPerBetType() {
-		Bet bet = new Bet(8961,  new Date(Calendar.getInstance().getTime().getTime()), "PLACE", 104567L, 1081L, 100);
+		Bet bet = new Bet(8961,  new Timestamp(Calendar.getInstance().getTime().getTime()), "PLACE", 104567L, 1081L, 100);
 		betRepository.save(bet);
-		 bet = new Bet(8962,  new Date(Calendar.getInstance().getTime().getTime()), "TRIFECTA", 104567L, 1082L, 100);
+		 bet = new Bet(8962,  new Timestamp(Calendar.getInstance().getTime().getTime()), "TRIFECTA", 104567L, 1082L, 100);
 		 betRepository.save(bet);
 		 Object[] totalInvestment = betRepository.getTotalBetsSoldPerBetType();
 		 assertNotNull(totalInvestment);
