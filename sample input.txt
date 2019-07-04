@@ -1,0 +1,115 @@
+
+login :
+
+URL: localhost:8080/api/v1/user/login
+ Content-Type   : application/json
+
+input:
+{
+  "userId": "navya",
+  "password" : "Navy@9746"
+}
+
+
+
+Register User:
+
+URL: localhost:8080/api/v1/user/register
+ Content-Type   : application/json
+
+input: 
+{
+  "userId": "navya",
+  "firstname" :"navya",
+  "lastname" :"surendran",
+  "password" : "Navy@9746"
+}
+
+
+
+Save Bet:
+
+Headers:
+ Content-Type   : application/json
+authorization   : Add "Bearer " followed by the token recieved after login
+URL:  localhost:8080/api/v1/bet
+
+
+Positive input
+{
+"betId" : "7874",
+"date" :  "2019-08-28T14:45:15",
+"betType" : "WIN", 
+"propNumber": "14456",
+"customerId":"55566",
+"investmentAmount": "100"
+}
+
+Negative Input:
+past Date:
+{
+"betId" : "7874",
+"date" :  "2019-06-28T14:45:15",
+"betType" : "WIN", 
+"propNumber": "14456",
+"customerId":"55566",
+"investmentAmount": "100"
+}
+Invalid BetType:
+{
+"betId" : "7874",
+"date" :  "2019-08-28T14:45:15",
+"betType" : "YYYY", 
+"propNumber": "14456",
+"customerId":"55566",
+"investmentAmount": "100"
+}
+
+
+
+Maximum Investment Amount:
+{
+"betId" : "7874",
+"date" :  "2019-06-28T14:45:15",
+"betType" : "WIN", 
+"propNumber": "14456",
+"customerId":"55566",
+"investmentAmount": "1003333"
+}
+
+
+
+Total Investment Per Bet Type:
+Headers:
+ Content-Type   : application/json
+authorization   : Add "Bearer " followed by the token recieved after login
+URL:  :  localhost:8080/api/v1/bet/totalInvestment/betType
+
+
+
+Total Investment Per Customer ID:
+Headers:
+ Content-Type   : application/json
+authorization   : Add "Bearer " followed by the token recieved after login
+URL:  :  localhost:8080/api/v1/bet/totalInvestment/customerId
+
+
+
+Total Bets Sold Per Bet Type:
+Headers:
+ Content-Type   : application/json
+authorization   : Add "Bearer " followed by the token recieved after login
+URL:  :  localhost:8080/api/v1/bet/bets/betType
+
+
+
+Total No Of Bets Sold Per Hour
+Headers:
+ Content-Type   : application/json
+authorization   : Add "Bearer " followed by the token recieved after login
+URL:  :  localhost:8080/api/v1/bet/bets/hour
+
+
+
+
+
