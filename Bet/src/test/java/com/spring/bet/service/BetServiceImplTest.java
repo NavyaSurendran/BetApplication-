@@ -9,6 +9,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -39,7 +40,7 @@ public class BetServiceImplTest {
 	@Before
 	public void setupMock() {
 		MockitoAnnotations.initMocks(this);
-		bet = new Bet(1236,  new Date(Calendar.getInstance().getTime().getTime()), "WIN", 104567L, 1080L, 100);
+		bet = new Bet(1236,  new Timestamp(Calendar.getInstance().getTime().getTime()), "WIN", 104567L, 1080L, 100);
 		options = Optional.of(bet);
 	}
 	
@@ -67,16 +68,6 @@ public class BetServiceImplTest {
 		verify(repo,times(1)).findById(bet.getBetId());			
 	}
 	
-	/*@Test
-	public void testGetTotalInvestmentPerBetType() {
-		Object[] totalInvestment;
-		totalInvestment[0] = new Object("WIN", 200);
-		
-		when(repo.findByUserId("jon")).thenReturn(movies);		
-		List<Movie> mvs = service.getMyMovies("jon");
-		assertEquals("fetching all movies  failed",movies.size(), mvs.size());		
-		verify(repo,times(1)).findByUserId("jon");
-		
-	}*/
+	
 
 }
