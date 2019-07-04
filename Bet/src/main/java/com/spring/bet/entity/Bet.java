@@ -1,6 +1,7 @@
 package com.spring.bet.entity;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +28,7 @@ public class Bet {
 
 	@DateConstraint
 	@Column(name = "date")
-	private Date date;
+	private Timestamp date;
 
 	@BetTypeConstraint
 	@Column(name = "bet_type")
@@ -47,7 +48,7 @@ public class Bet {
 		
 	}
 	
-	public Bet(int betId, Date date, String betType, long propNumber, long customerId, double investmentAmount) {
+	public Bet(int betId, Timestamp date, String betType, long propNumber, long customerId, double investmentAmount) {
 		this.betId = betId;
 		this.date = date;
 		this.betType = betType;
@@ -64,11 +65,11 @@ public class Bet {
 		this.betId = betId;
 	}
 
-	public Date getDate() {
+	public Timestamp getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(Timestamp date) {
 		this.date = date;
 	}
 
