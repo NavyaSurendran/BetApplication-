@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.NoRepositoryBean;
 
-@NoRepositoryBean
+
 public interface BetRepositoryCustom {
 
 	
